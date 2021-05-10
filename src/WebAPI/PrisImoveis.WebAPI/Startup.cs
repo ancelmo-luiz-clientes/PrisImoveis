@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using PrisImoveis.Infra.Contexto;
 using System;
 using System.Collections.Generic;
@@ -30,9 +31,25 @@ namespace PrisImoveis.WebAPI
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Pris Imóveis API",
+                    Description = "API de teste para vaga de back-end .Net",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Ancelmo Luiz",
+                        Email = "ancelmo.luiz@hotmail.com",
+                        Url = new Uri("https://ancelmoluiz.net"),
+                    }
+                });
+            });
         }
 
-       
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -41,6 +58,13 @@ namespace PrisImoveis.WebAPI
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pris Imóveis V1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseRouting();
 
