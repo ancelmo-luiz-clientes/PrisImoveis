@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PrisImoveis.Donimio.Enums;
 using PrisImoveis.Donimio.IRepositories;
 using PrisImoveis.Historias.Imoveis;
 using System;
@@ -20,9 +21,35 @@ namespace PrisImoveis.WebAPI.Controllers
             _consultarImoveis = new ConsultarImoveis(imovelRepository);
         }
 
-        public IActionResult Index()
+        [HttpPost]
+        public async Task<IActionResult> Criar()
         {
             return Ok();
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Alterar()
+        {
+            return Ok();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Excluir()
+        {
+            return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ListarTodosImoveis()
+        {
+            return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ListarPorTipoDeImovel(ETipoDeImovel tipoDeImovel)
+        {
+            return Ok();
+        }
+
     }
 }
