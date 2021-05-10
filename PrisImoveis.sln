@@ -23,9 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebAPI", "WebAPI", "{A329D9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrisImoveis.WebApp", "src\WebApp\PrisImoveis.WebApp\PrisImoveis.WebApp.csproj", "{01584544-E16B-42B4-B360-CC1B26B21DE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrisImoveis.Teste", "src\Teste\PrisImoveis.Teste\PrisImoveis.Teste.csproj", "{D43BACF4-FD75-411B-BFCD-5B94F53364DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrisImoveis.Teste", "src\Teste\PrisImoveis.Teste\PrisImoveis.Teste.csproj", "{D43BACF4-FD75-411B-BFCD-5B94F53364DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrisImoveis.WebAPI", "src\WebAPI\PrisImoveis.WebAPI\PrisImoveis.WebAPI.csproj", "{7403B028-5106-47FA-A469-D6C80BB7E895}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrisImoveis.WebAPI", "src\WebAPI\PrisImoveis.WebAPI\PrisImoveis.WebAPI.csproj", "{7403B028-5106-47FA-A469-D6C80BB7E895}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

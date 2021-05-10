@@ -1,42 +1,52 @@
-﻿using PrisImoveis.Donimio.Entidades;
+﻿using Microsoft.EntityFrameworkCore;
+using PrisImoveis.Donimio.Entidades;
 using PrisImoveis.Donimio.Enums;
 using PrisImoveis.Donimio.IRepositories;
-using System;
+using PrisImoveis.Infra.Contexto;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PrisImoveis.Infra.Repositories
 {
     public class ImovelRepository : IImovelRepository
     {
-        public Task Atualizar(Imovel imovel)
+        private readonly DataContext _dataContext;
+
+        public ImovelRepository(DataContext dataContext)
         {
-            throw new NotImplementedException();
+            _dataContext = dataContext;
         }
 
-        public Task<Imovel> BuscarPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task Criar(Imovel imovel)
+        public async Task Criar(Imovel imovel)
         {
-            throw new NotImplementedException();
+            _dataContext.Imoveis.Add(imovel);
+            await _dataContext.SaveChangesAsync();
         }
-
-        public Task Excluir(Imovel imovel)
+        public async Task Atualizar(Imovel imovel)
         {
-            throw new NotImplementedException();
+            _dataContext.Update(imovel);
+            await _dataContext.SaveChangesAsync();
         }
-
-        public Task<IEnumerable<Imovel>> ListarPorTipoDeImovel(ETipoDeImovel tipoDeImovel)
+        public async Task Excluir(Imovel imovel)
         {
-            throw new NotImplementedException();
+            _dataContext.Remove(imovel);
+            await _dataContext.SaveChangesAsync();
         }
-
-        public Task<IEnumerable<Imovel>> ListarTodosImoveis()
+        public async Task<Imovel> BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            var imovel = await _dataContext.Imoveis.FirstOrDefaultAsync(x => x.Id == id);
+
+            return imovel;
+        }
+        public async Task<IEnumerable<Imovel>> ListarPorTipoDeImovel(ETipoDeImovel tipoDeImovel)
+        {
+            return await _dataContext.Imoveis.Where(i => i.TipoDeImovel == tipoDeImovel).AsNoTracking().ToListAsync();
+        }
+        public async Task<IEnumerable<Imovel>> ListarTodosImoveis()
+        {
+            return await _dataContext.Imoveis.AsNoTracking().ToListAsync();
         }
     }
 }

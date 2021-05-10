@@ -8,9 +8,5 @@
     <ProjectReference Include="..\..\Historias\PrisImoveis.Historias\PrisImoveis.Historias.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 
 </Project>
