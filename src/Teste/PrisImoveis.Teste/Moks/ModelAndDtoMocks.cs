@@ -1,5 +1,5 @@
 ﻿using PrisImoveis.Donimio.Dto;
-using PrisImoveis.WebApp.Models;
+using PrisImoveis.Donimio.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,15 +22,15 @@ namespace PrisImoveis.Teste.Moks
             return endereco;
         }
 
-        public static ImovelViewModel ImovelDtoMock(EnderecoDto endereco)
+        public static ImovelDto ImovelDtoMock(EnderecoDto endereco)
         {
-            var imovel = new ImovelViewModel
+            var imovel = new ImovelDto
             {
                 Cep = endereco.Cep,
                 Logradouro = endereco.Logradouro,
                 Numero = "1234",
                 Descricao = "Casa com 4 quartos",
-                TipoDeImovel = Donimio.Enums.ETipoDeImovel.Casa,
+                TipoDeImovel = ETipoDeImovel.Casa,
                 Valor = 1000.00m
             };
             return imovel;

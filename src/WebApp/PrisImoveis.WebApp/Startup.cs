@@ -4,9 +4,6 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PrisImoveis.Donimio.IRepositories;
-using PrisImoveis.Infra.Repositories;
-using PrisImoveis.WebApp.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,11 +23,7 @@ namespace PrisImoveis.WebApp
       
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IImovelRepository, ImovelRepository>();
-
-            services.AddApiClients(Configuration);
-
-            services.AddControllersWithViews();
+           services.AddControllersWithViews();
         }
 
      

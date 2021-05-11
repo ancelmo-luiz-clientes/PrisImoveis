@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PrisImoveis.Donimio.Enums;
+using PrisImoveis.WebApp.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace PrisImoveis.WebApp.Models

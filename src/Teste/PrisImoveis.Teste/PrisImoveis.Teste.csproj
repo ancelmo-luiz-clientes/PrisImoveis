@@ -24,7 +24,6 @@
     <ProjectReference Include="..\..\Dominio\PrisImoveis.Donimio\PrisImoveis.Donimio.csproj" />
     <ProjectReference Include="..\..\Historias\PrisImoveis.Historias\PrisImoveis.Historias.csproj" />
     <ProjectReference Include="..\..\Infraestrutura\PrisImoveis.Infra\PrisImoveis.Infra.csproj" />
-    <ProjectReference Include="..\..\WebApp\PrisImoveis.WebApp\PrisImoveis.WebApp.csproj" />
   </ItemGroup>
 
 </Project>

@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Historias\PrisImoveis.Historias\PrisImoveis.Historias.csproj" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
 </Project>
