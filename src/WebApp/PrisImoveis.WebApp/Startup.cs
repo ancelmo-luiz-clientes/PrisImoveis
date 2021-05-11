@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PrisImoveis.WebApp.ApiClients;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace PrisImoveis.WebApp
       
         public void ConfigureServices(IServiceCollection services)
         {
-           services.AddControllersWithViews();
+            services.AddControllersWithViews();
         }
 
      

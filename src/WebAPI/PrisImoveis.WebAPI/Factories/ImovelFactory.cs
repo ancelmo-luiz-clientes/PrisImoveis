@@ -1,9 +1,6 @@
 ﻿using PrisImoveis.Donimio.Entidades;
 using PrisImoveis.WebAPI.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PrisImoveis.WebAPI.Factories
 {
@@ -23,7 +20,6 @@ namespace PrisImoveis.WebAPI.Factories
 
             return imovelViewModel;
         }
-
         public static Imovel MapearImovel(ImovelViewModel imovelViewModel)
         {
             var imovel = new Imovel(imovelViewModel.TipoDeImovel,
@@ -36,8 +32,6 @@ namespace PrisImoveis.WebAPI.Factories
             return imovel;
 
         }
-
-
         public static IEnumerable<ImovelViewModel> MapearListaImovelViewModel(IEnumerable<Imovel> imoveis)
         {
             var lista = new List<ImovelViewModel>();
