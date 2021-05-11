@@ -1,8 +1,6 @@
 ﻿using PrisImoveis.Donimio.Entidades;
 using PrisImoveis.Donimio.IRepositories;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PrisImoveis.Historias.Imoveis
