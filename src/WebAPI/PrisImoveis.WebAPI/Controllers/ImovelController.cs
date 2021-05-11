@@ -2,9 +2,9 @@
 using PrisImoveis.Donimio.Enums;
 using PrisImoveis.Donimio.IRepositories;
 using PrisImoveis.Historias.Imoveis;
-using System;
+using PrisImoveis.WebAPI.Factories;
+using PrisImoveis.WebAPI.Models;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PrisImoveis.WebAPI.Controllers
@@ -21,34 +21,36 @@ namespace PrisImoveis.WebAPI.Controllers
             _consultarImoveis = new ConsultarImoveis(imovelRepository);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Criar()
+        [HttpPost("criar")]
+        public async Task<IActionResult> Criar([FromBody] ImovelViewModel imovelViewModel)
         {
-            return Ok();
+            var imovel = ImovelFactory.MapearImovel(imovelViewModel);
+
+            await _criarImovel.Executar(imovel);
+
+            return Ok(new { msg = "Imóvel criado com sucesso" });
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Alterar()
+      
+        [HttpGet("listar-todos")]
+        public async Task<IEnumerable<ImovelViewModel>> ListarTodosImoveis()
         {
-            return Ok();
+
+            var imoveis = await _consultarImoveis.ListarTodosImoveis();
+
+            var listaImovelViewMovel = ImovelFactory.MapearListaImovelViewModel(imoveis);
+
+            return listaImovelViewMovel;
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Excluir()
+        [HttpGet("listar-por-tipo/{tipoImovel}")]
+        public async Task<IEnumerable<ImovelViewModel>> ListarPorTipoDeImovel(ETipoDeImovel tipoDeImovel)
         {
-            return Ok();
-        }
+            var imoveis = await _consultarImoveis.ListarPorTipoDeImovel(tipoDeImovel);
 
-        [HttpGet]
-        public async Task<IActionResult> ListarTodosImoveis()
-        {
-            return Ok();
-        }
+            var listaImovelViewMovel = ImovelFactory.MapearListaImovelViewModel(imoveis);
 
-        [HttpGet]
-        public async Task<IActionResult> ListarPorTipoDeImovel(ETipoDeImovel tipoDeImovel)
-        {
-            return Ok();
+            return listaImovelViewMovel;
         }
 
     }

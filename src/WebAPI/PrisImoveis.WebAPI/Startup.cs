@@ -8,7 +8,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PrisImoveis.Donimio.IRepositories;
 using PrisImoveis.Infra.Contexto;
+using PrisImoveis.Infra.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +33,9 @@ namespace PrisImoveis.WebAPI
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
+
+            services.AddScoped<IImovelRepository, ImovelRepository>();
+            services.AddScoped<DataContext, DataContext>();
 
             services.AddSwaggerGen(c =>
             {
@@ -62,8 +67,7 @@ namespace PrisImoveis.WebAPI
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pris Imóveis V1");
-                c.RoutePrefix = string.Empty;
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pris Imóveis API v1");
             });
 
             app.UseRouting();
