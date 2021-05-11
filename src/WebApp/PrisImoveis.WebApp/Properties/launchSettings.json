@@ -14,6 +14,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "UrlViaCep": "https://viacep.com.br",
+        "UrlPrisImoveis": "https://localhost:5001",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"
       }
     },

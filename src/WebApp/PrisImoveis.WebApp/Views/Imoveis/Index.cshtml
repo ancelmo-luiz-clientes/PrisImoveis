@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PrisImoveis.WebApp.Models.ImovelViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoDeImovel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logradouro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoDeImovel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Logradouro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

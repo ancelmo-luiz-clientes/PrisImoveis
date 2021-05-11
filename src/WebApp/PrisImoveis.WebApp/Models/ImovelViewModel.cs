@@ -2,7 +2,7 @@
 using PrisImoveis.Donimio.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace PrisImoveis.WebAPI.Models
+namespace PrisImoveis.WebApp.Models
 {
     public class ImovelViewModel
     {

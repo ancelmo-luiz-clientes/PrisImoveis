@@ -1,5 +1,5 @@
 ﻿
-namespace PrisImoveis.Donimio.Enums
+namespace PrisImoveis.WebApp.Models.Enums
 {
     public enum ETipoDeImovel
     {

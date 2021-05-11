@@ -1,8 +1,5 @@
 ﻿using PrisImoveis.Infra.ApiClients;
 using Refit;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PrisImoveis.Teste.Moks
 {
